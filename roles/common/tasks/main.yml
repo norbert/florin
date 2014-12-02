@@ -67,3 +67,4 @@
   when: ansible_distribution_release != 'trusty'
 - include: google_auth_mod.yml tags=google_auth
   when: ansible_distribution_release == 'trusty'
+- include: sysctl.yml tags=security,kernel
