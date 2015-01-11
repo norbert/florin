@@ -1,6 +1,4 @@
 ---
-# This is the top-level playbook that defines our entire infrastructure.
-
 - hosts: all
   user: deploy
   sudo: True
@@ -8,19 +6,8 @@
   vars_files:
     - vars/defaults.yml
     - vars/{{ 'testing' if testing is defined else 'user' }}.yml
-
   roles:
+    - base
     - common
-    - mailserver
-    - webmail
-    - blog
-    - ircbouncer
-    - xmpp
-    - owncloud
-    - vpn
-    - tarsnap
-    - news
-    - git
-    - newebe
-    - readlater
-    - monitoring  # Monitoring role should be last. See roles/monitoring/README.md
+    #- tarsnap
+    - monitoring
