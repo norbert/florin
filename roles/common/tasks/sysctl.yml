@@ -23,3 +23,19 @@
     sysctl_set=yes
     state=present
     reload=yes
+
+- name: Prevent the TCP metrics from being saves so the window size is fresh per-connection
+  sysctl:
+    name="net.ipv4.tcp_no_metrics_save"
+    value=1
+    sysctl_set=yes
+    state=present
+    reload=yes
+
+- name: Disable TCP slow start after idle
+  sysctl:
+    name="net.ipv4.tcp_slow_start_after_idle"
+    value=0
+    sysctl_set=yes
+    state=present
+    reload=yes
