@@ -39,3 +39,19 @@
     sysctl_set=yes
     state=present
     reload=yes
+
+- name: Enable TCP SYN cookies
+  sysctl:
+    name="net.ipv4.tcp_syncookies"
+    value=1
+    sysctl_set=yes
+    state=present
+    reload=yes
+
+- name: Disable TCP timestamps
+  sysctl:
+    name="net.ipv4.tcp_timestamps"
+    value=0
+    sysctl_set=yes
+    state=present
+    reload=yes
